@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *annualAddition;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *continuousCompound;
 
-- (IBAction)solve:(id)sender;
+- (void) solve;
 - (void) calculate;
 - (void) calculateWithAddition;
 - (void) calculateContinuous;

@@ -22,17 +22,14 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
-    
     [self.view addGestureRecognizer:tap];
-    
+    [continuousCompound addTarget:self action:@selector(solve) forControlEvents:UIControlEventValueChanged];
     [super viewDidLoad];
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
 }
 
 #pragma mark - Flipside View Controller
@@ -75,7 +72,7 @@
     }
 }
 
-- (IBAction)solve:(id)sender {
+- (void)solve {
     r = [rate.text floatValue]/100.0;
     n = [numberCompounds.text floatValue];
     t = [length.text floatValue];
@@ -130,6 +127,7 @@
     if (self.view.frame.origin.y < 0) {
         [self moveViewDown];
     }
+    [self solve];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)sender
